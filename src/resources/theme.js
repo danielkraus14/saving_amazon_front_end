@@ -32,8 +32,12 @@ const theme = createTheme({
     typography: {
         fontFamily: "Raleway, Arial, sans-serif",
         h2: {
-            fontSize: "3.125rem",
+            fontSize: "3rem",
             fontWeight: '700'
+        },
+        h3: {
+            fontSize: "2.8rem",
+            fontWeight: '600'
         },
         h4: {
             fontSize: "1.6875rem",
@@ -49,6 +53,26 @@ const theme = createTheme({
             lineHeight : '1.5rem'
         }
     },
+    components: {
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    borderRadius: "0.5rem",
+                },
+                input: {
+                    padding: "0.75rem",
+                }
+
+            }
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    borderRadius: "1rem",
+                }
+            }
+        },
+    }
 });
 
 export default theme;
