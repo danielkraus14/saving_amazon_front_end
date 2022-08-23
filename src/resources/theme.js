@@ -31,6 +31,18 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: "Raleway, Arial, sans-serif",
+        h2: {
+            fontSize: "3.125rem",
+            fontWeight: '700'
+        },
+        h4: {
+            fontSize: "1.6875rem",
+            fontWeight: '600'
+        },
+        h5: {
+            fontSize: "1.125rem",
+            fontWeight: '400'
+        },
         h6: {
             fontSize: "1rem",
             fontWeight: '500',

@@ -1,12 +1,14 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useTheme } from "@mui/material";
+import { useTranslation} from "react-i18next";
 
 import amazon_logo from "../assets/amazon_logo.png";
 import palm_trees from "../assets/palm_trees.png";
 import tree_amazon from "../assets/tree_amazon.png";
 
-const LandingPage = ({language}) => {
-  let currentLanguage = language;
+const LandingPage = () => {
+  const {t} = useTranslation();
+  const theme = useTheme();
   return (
     <>
     <Grid container width="100%" justifyContent='flex-end'>
@@ -43,7 +45,7 @@ const LandingPage = ({language}) => {
               paddingRight: "4.875rem",
             }}
           >
-            ¿Qué Logramos?
+          {t('links.link1')}
           </Typography>
         </Grid>
         <Grid item>
@@ -52,7 +54,7 @@ const LandingPage = ({language}) => {
             color="fontColor"
             sx={{ fontSize: "14px", lineHeight: "16px" }}
           >
-            La Comunidad
+          {t('links.link2')}
           </Typography>
         </Grid>
         <Grid item sx={{ marginX: "6.25rem" }}>
@@ -64,15 +66,52 @@ const LandingPage = ({language}) => {
         </Grid>
       </Grid>
     </Grid>
-    <Grid container width="100%" justifyContent='flex-end'>
-            <Grid item container flexDirection='column' alignItems='center' justifyContent='center' xs={7}>
-              <Grid item>
+    <Grid container width="100%" justifyContent='flex-end' >
+            <Grid item container flexDirection='column' alignItems='center' justifyContent='center' xs={6} sx={{marginRight: '-45px', paddingLeft: '2rem'}} >
+              <Grid item sx={{alignSelf: 'flex-start'}}>
                 <Typography variant='h2' color="secondary">
-                  { currentLanguage === 'en' ? "Let's sow the future together. One tree at a time" : currentLanguage === 'es' ? 'Sembremos juntos el futuro. Un árbol a la vez'  :  "Vamos semear o futuro juntos. Uma árvore de cada vez" }
+                  { t('landingPage.title') }
+                </Typography>
+                <Typography variant='h2' color="secondary">
+                  { t('landingPage.subtitle') }
                 </Typography>
               </Grid>
-              <Grid item></Grid>
-              <Grid item container></Grid>
+              <Grid item alignSelf='flex-start' sx={{paddingTop: '2.375rem', paddingBottom: '3.8rem'}}>
+                <Typography variant='h5' color="fontColor" sx={{maxWidth: '635px'}} align='justify' > 
+                  {t('landingPage.description')}
+                </Typography>
+
+              </Grid>
+              <Grid item container>
+                <Grid item container>
+                  <Grid item>
+                    <Typography variant='h4' color="secondary" sx={{}} >
+                      { t('landingPage.sectionForestTitle') }
+                    </Typography>
+                  </Grid>
+
+                  <Grid item container sx={{paddingTop: '1.25rem'}} >
+                    <Grid item sx={{backgroundColor: `${theme.palette.buttonColor.light}`, width: '13.125rem'}} >
+                      <Typography variant='h2' color="white" sx={{paddingBotton: '0.5rem'}} align="center" >
+                        { t('landingPage.sectionForestTreesPlanted') }
+                      </Typography>
+                      <Typography variant='h5' color={theme.palette.secondary.dark} sx={{paddingBottom: '1.3rem'}} align="center" >
+                        { t('landingPage.sectionForestTrees') }
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item container direction='column'>
+                  <Grid item>
+                  </Grid>
+                  <Grid item>
+                  </Grid>
+                  <Grid item>
+                  </Grid>
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item xs={4} sx={{marginRight: '2.5rem'}} display='flex' justifyContent='flex-end' alignItems='center' >
               <img src={tree_amazon} alt="planted tree" width="90%"/>

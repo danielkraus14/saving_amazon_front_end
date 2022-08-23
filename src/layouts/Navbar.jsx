@@ -6,14 +6,17 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
+import { useTranslation } from "react-i18next";
+
 
 import adsmovil_logo_white from "../assets/adsmovil_logo_white.png";
 
 const Navbar = ({language,setLanguage}) => {
     const [isActiveLocale, setIsActiveLocale] = useState(language);
+    const {t, i18n} = useTranslation();
 
     const handleLanguage = (locale) => {
-      console.log(locale);
+        i18n.changeLanguage(locale);
         setLanguage(locale);
         setIsActiveLocale(locale);
     }
