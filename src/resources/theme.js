@@ -72,6 +72,18 @@ const theme = createTheme({
                 }
             }
         },
+        MuiLink: {
+            styleOverrides: {
+                root: {
+                    textDecoration: "none",
+                    fontFamily: "Raleway, Arial, sans-serif",
+                    ":hover": {
+                        color: "#152154",
+                        textDecoration: "none"
+                    }
+                }
+            }
+        }
     }
 });
 

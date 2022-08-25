@@ -1,14 +1,15 @@
 import React from "react";
-import { Grid, Typography, useTheme } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import amazon_logo from "../assets/amazon_logo.png";
 import palm_trees from "../assets/palm_trees.png";
 import MainScreen from "./MainScreen";
 
-const LandingPage = () => {
+const LandingPage = ({language}) => {
+
+  
   const { t } = useTranslation();
-  const theme = useTheme();
   return (
     <>
       <Grid container width="100%" justifyContent="flex-end">
@@ -71,7 +72,7 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Grid>
-      <MainScreen />
+      <MainScreen language={language} />
     </>
   );
 };

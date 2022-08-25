@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Grid, TextField, Typography, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import tree_amazon from "../assets/tree_amazon.png";
+import ModalTracker from "./ModalTracker";
 
-const MainScreen = () => {
+const MainScreen = ({language}) => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const [adsmovilUser, setAdsmovilUser] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [trackerValue, setTrackerValue] = useState("");
+  
+  const handleChangeInputTracker = (e) => {
+    setTrackerValue(e.target.value);
+  };
+
   return (
     <>
       <Grid container width="100%" justifyContent="flex-end">
@@ -116,6 +125,7 @@ const MainScreen = () => {
                   id="tracking-input"
                   placeholder={t("landingPage.section2TrackInputPlaceholder")}
                   sx={{ width: "16.5rem", marginTop: "1rem", height: "2.5rem" }}
+                  onChange={handleChangeInputTracker}
                 />
               </Grid>
               <Grid item sx={{ marginTop: "1.4rem" }}>
@@ -124,13 +134,19 @@ const MainScreen = () => {
                     variant="h5"
                     color="white"
                     sx={{ fontWeight: "700", padding: "0.5rem 3rem" }}
+                    onClick={() => setIsModalOpen(true)}
                   >
                     {t("landingPage.section2TrackButton")}
                   </Typography>
                 </Button>
               </Grid>
             </Grid>
-            <Typography variant="h5" color="fontColor" align="left" sx={{marginTop: '1.8rem'}}>
+            <Typography
+              variant="h5"
+              color="fontColor"
+              align="left"
+              sx={{ marginTop: "1.8rem" }}
+            >
               {t("landingPage.caption")}
             </Typography>
           </Grid>
@@ -158,6 +174,14 @@ const MainScreen = () => {
           sx={{ paddingLeft: "2.5rem", marginTop: "1.8rem" }}
         ></Grid>
       </Grid>
+      <ModalTracker 
+        isModalOpen={isModalOpen} 
+        setIsModalOpen={setIsModalOpen} 
+        trackerValue={trackerValue}
+        language={language}
+        adsmovilUser={adsmovilUser}
+        setAdsmovilUser={setAdsmovilUser}
+      />
     </>
   );
 };
